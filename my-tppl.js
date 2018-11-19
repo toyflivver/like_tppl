@@ -9,7 +9,7 @@ function render(temp , data){
     var cacheOnce = temp.trim().split("<tppl>");
 
     for(var i=0; i<cacheOnce.length; i++){
-        cache = $.trim(cacheOnce[i]).split("</tppl>");
+        cache = cacheOnce[i].replace(/^\s+|\s+$/gm,'').split("</tppl>");
         //一般情况下cacheOnce[i].split("</tppl>")的结果长度应当为2。第一个为JavaScript代码，第二个为HTML模板。
         //但如果模板不是已<tppl>标签开头的，则cacheOnce[0].split("</tppl>")的结果长度为1，并且此唯一的结果是HTML模板，不是JavaScript代码。
         //所以在此处统一结果
