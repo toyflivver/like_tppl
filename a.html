@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script src="my-tppl.js"></script>
+	<title></title>
+</head>
+<body>
+	<template id="template">
+		<div>hello, <tppl>=data.name</tppl></div>
+		<ul>
+			<tppl> for(var i=0; i < data.hobby.length; i++){ </tppl>
+				<li><tppl>=data.hobby[i]</tppl></li>
+			<tppl> } </tppl>
+		</ul>
+	</template>
+	<div id="continer"></div>
+</body>
+
+<script type="text/javascript">
+	var data = {
+		"name":"toyflivver",
+		"hobby":[
+            "code",
+            "中国近代史",
+            "硬笔楷书",
+			"伪军迷"
+		]
+	};
+	var template =$("#template").html();
+	var html  = render(template, data);
+	$("#continer").html(html);
+</script>
+</html>
